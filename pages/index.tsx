@@ -3,6 +3,13 @@ import { Breadcrumb, Layout, Menu } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
 
+const items = [
+    { label: 'Blog', key: 'item-1' },
+    { label: 'Tech', key: 'item-2' },
+    { label: 'About', key: 'item-3' },
+    { label: 'Diary', key: 'item-4' },
+]
+
 export default function Home() {
   return (
       <Layout className="layout">
@@ -11,14 +18,8 @@ export default function Home() {
               <Menu
                   theme="dark"
                   mode="horizontal"
-                  defaultSelectedKeys={['2']}
-                  items={new Array(4).fill(null).map((_, index) => {
-                      const key = index + 1;
-                      return {
-                          key,
-                          label: `nav ${key}`,
-                      };
-                  })}
+                  defaultSelectedKeys={['item-1']}
+                  items={items}
               />
           </Header>
           <Content style={{ padding: '0 50px' }}>
