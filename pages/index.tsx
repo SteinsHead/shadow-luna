@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Breadcrumb, Layout, Menu, Input, Avatar   } from 'antd';
+import { Breadcrumb, Layout, Menu, Input, Avatar, Col  } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 
@@ -15,7 +15,7 @@ const items = [
 export default function Home() {
   return (
       <Layout className="layout">
-          <Header>
+          <Header style={{ flexDirection: 'row' }}>
               <div className="logo" />
               <Menu
                   theme="dark"
@@ -23,7 +23,9 @@ export default function Home() {
                   defaultSelectedKeys={['item-1']}
                   items={items}
               />
-              <Input placeholder="Basic usage" />
+              <Col span={5}>
+                  <Input placeholder="default size" prefix={<UserOutlined />} />
+              </Col>
               <Avatar size="large" icon={<UserOutlined />} />
           </Header>
           <Content style={{ padding: '0 50px' }}>
