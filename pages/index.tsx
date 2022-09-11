@@ -10,6 +10,7 @@ const items = [
     { label: 'Tech', key: 'item-2' },
     { label: 'About', key: 'item-3' },
     { label: 'Diary', key: 'item-4' },
+    { label: 'Comment', key: 'item-5' },
 ]
 
 export default function Home() {
