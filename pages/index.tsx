@@ -16,7 +16,7 @@ const items = [
 export default function Home() {
   return (
       <Layout className="layout">
-          <Header style={{ flexDirection: 'row' }}>
+          <Header style={{ flexDirection: 'column' }}>
               <div className="logo" />
               <Menu
                   theme="dark"
