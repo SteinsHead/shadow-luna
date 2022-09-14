@@ -21,7 +21,7 @@ export default function Home() {
               <Menu
                   theme="dark"
                   mode="horizontal"
-                  defaultSelectedKeys={['item-1']}
+                  defaultSelectedKeys={['item-2']}
                   items={items}
               />
               <Col span={5}>
