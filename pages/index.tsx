@@ -1,6 +1,5 @@
-import Head from "next/head";
-import { Breadcrumb, Layout, Menu, Input, Avatar, Col  } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Breadcrumb, Layout, Menu, Input, Avatar, Col, Row  } from 'antd';
+import { UserOutlined, SearchOutlined } from '@ant-design/icons';
 
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -16,18 +15,21 @@ const items = [
 export default function Home() {
   return (
       <Layout className="layout">
-          <Header style={{ flexDirection: 'column' }}>
-              <div className="logo" />
-              <Menu
-                  theme="dark"
-                  mode="horizontal"
-                  defaultSelectedKeys={['item-2']}
-                  items={items}
-              />
-              <Col span={5}>
-                  <Input placeholder="default size" prefix={<UserOutlined />} />
-              </Col>
-              <Avatar size="large" icon={<UserOutlined />} />
+          <Header style={{ backgroundColor: 'whitesmoke' , flexDirection: 'row' }}>
+              <Row justify="space-between">
+                  <Col span={5}>
+                      <h3>Shadow Luna</h3>
+                  </Col>
+                  <Col span={5}>
+                      <Input placeholder="input here" prefix={<SearchOutlined />} />
+                  </Col>
+                  <Col span={5}>
+                      <Menu items={items} mode="horizontal" />
+                  </Col>
+                  <Col span={1}>
+                      <Avatar size="large" icon={<UserOutlined />} />
+                  </Col>
+              </Row>
           </Header>
           <Content style={{ padding: '0 50px' }}>
               <Breadcrumb style={{ margin: '16px 0' }}>
