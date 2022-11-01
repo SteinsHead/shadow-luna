@@ -56,57 +56,39 @@ export default function Home() {
                 <Breadcrumb style={{ margin: '16px 0' }}>
                     <Breadcrumb.Item>Home</Breadcrumb.Item>
                     <Breadcrumb.Item>List</Breadcrumb.Item>
-                    <Breadcrumb.Item>App</Breadcrumb.Item>
+                    <Breadcrumb.Item>Content</Breadcrumb.Item>
                 </Breadcrumb>
-                <div className="site-layout-content" >
-                    <Tag style={{ margin: 10 }} color="blue">every day love</Tag>
-                    <List
-                        grid={{ gutter: 16, column: 4 }}
-                        dataSource={data}
-                        renderItem={item => (
-                            <List.Item>
-                                <Card
-                                    style={{ borderRadius: 10, margin: 10 }}
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                                        />
-                                    }
-                                >
-                                    <Meta
-                                        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                                        title={item.title}
-                                        description="This is the description"
-                                    />
-                                </Card>
-                            </List.Item>
-                        )}
-                    />
-                    <Tag style={{ margin: 10 }} color="blue">write and think</Tag>
-                    <List
-                        grid={{ gutter: 16, column: 4 }}
-                        dataSource={data}
-                        renderItem={item => (
-                            <List.Item>
-                                <Card
-                                    style={{ borderRadius: 10, margin: 10 }}
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                                        />
-                                    }
-                                >
-                                    <Meta
-                                        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                                        title={item.title}
-                                        description="This is the description"
-                                    />
-                                </Card>
-                            </List.Item>
-                        )}
-                    />
+                <div className="site-layout-content" style={{ margin: "0 auto", maxWidth: "100rem"}} >
+                    <Tag style={{ margin: 20, width: 100 }} color="blue">every day love</Tag>
+                    <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                    </div>
+                    <Tag style={{ margin: 20, width: 100 }} color="blue">write and think</Tag>
+                    <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                    </div>
+                    <Tag style={{ margin: 20, width: 100 }} color="blue">try to do</Tag>
+                    <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#e7efdf', borderRadius: 5, margin: 10, flexShrink: 0 }}></div>
+                    </div>
                 </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Shadow Luna ©2022 Created by Christina</Footer>
