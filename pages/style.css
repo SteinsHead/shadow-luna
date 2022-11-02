@@ -9,12 +9,13 @@ body {
     'Arial', sans-serif;
     padding: 20px 20px 60px;
     margin: 0 auto;
+    background: url("../public/background.png") fixed;
 }
 
 .site-layout-content {
     min-height: 1000px;
     padding: 24px;
-    background: #fff;
+    border-radius: 10px;
 }
 #components-layout-demo-top .logo {
     float: left;

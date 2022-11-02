@@ -1,5 +1,6 @@
 
-export default function Post() {
+
+export default function Blog() {
     return (
         <div className="container">
             <main>

@@ -1,5 +1,6 @@
 
-export default function Post() {
+
+export default function Tech() {
     return (
         <div className="container">
             <main>
