@@ -16,7 +16,7 @@ const items = [
 export default function Home() {
 
     return (
-        <Layout className="layout">
+        <Layout className="layout" style={{ borderRadius: 10, backgroundColor: "rgba(255, 255, 255, 0.35)"}}>
             <Header />
             <Content style={{ margin: '0 50px', overflow: "hidden" }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>

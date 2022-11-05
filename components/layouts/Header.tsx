@@ -1,8 +1,27 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import AvatarTip from "../fragment/AvatarTip";
+import {useState} from "react";
 
 
 export default function Header() {
+    const router = useRouter();
+    let [showTip, setShowTip] = useState(false);
+
+    const clickAvatarHandle = () => {
+        router.push("/Manage/manage");
+    }
+
+    const enterTipHandle = () => {
+        setShowTip(true);
+        console.log("heihei");
+    }
+
+    const leaveTipHandle = () => {
+        setShowTip(false);
+    }
+
     return (
         <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "5rem", paddingRight: "5rem"}}>
             <div className="title">
@@ -29,9 +48,14 @@ export default function Header() {
                         <a>Tech</a>
                     </Link></div>
             </div>
-            <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}}>
+            <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onClick={() => clickAvatarHandle()} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>
                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
             </div>
+            {showTip &&
+                <div className="toolTip" style={{ position: "absolute", top: "15rem", right: 30, zIndex: "999"}}>
+                    <AvatarTip></AvatarTip>
+                </div>
+            }
         </div>
     )
 }
