@@ -22,8 +22,16 @@ export default function Header() {
         setShowTip(false);
     }
 
+    const openIt = {
+        animation: "fade-in 500ms forwards"
+    }
+
+    const closeIt = {
+        animation: "fade-out 500ms forwards"
+    }
+
     return (
-        <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "5rem", paddingRight: "5rem"}}>
+        <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "10rem", paddingRight: "10rem"}}>
             <div className="title">
                 <h3>Shadow Luna</h3>
             </div>
@@ -52,7 +60,7 @@ export default function Header() {
                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
             </div>
             {showTip &&
-                <div className="toolTip" style={{ position: "absolute", top: "15rem", right: 30, zIndex: "999"}}>
+                <div className="toolTip" style={{ position: "absolute", top: "12rem", right: "5rem", zIndex: "999", animation: "fade-in 5000ms forwards" }}>
                     <AvatarTip></AvatarTip>
                 </div>
             }
