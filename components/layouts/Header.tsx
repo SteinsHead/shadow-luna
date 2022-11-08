@@ -15,7 +15,6 @@ export default function Header() {
 
     const enterTipHandle = () => {
         setShowTip(true);
-        console.log("heihei");
     }
 
     const leaveTipHandle = () => {
@@ -41,19 +40,19 @@ export default function Header() {
             <div className="context" style={{ display: "flex", flexDirection: "row", minWidth: "35rem", minHeight: "7rem"}}>
                 <div className="menu" style={{ backgroundColor: "#a1abd4", flex: 1, margin: 5, borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <Link href="/Diary/diary">
-                        <a>Diary</a>
+                        <p style={{ margin: 0}}>Diary</p>
                     </Link></div>
                 <div className="menu" style={{ backgroundColor: "#a1abd4", flex: 1, margin: 5, borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <Link href="/Blog/blog">
-                        <a>Blog</a>
+                        <p style={{ margin: 0}}>Blog</p>
                     </Link></div>
                 <div className="menu" style={{ backgroundColor: "#a1abd4", flex: 1, margin: 5, borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <Link href="/About/about">
-                        <a>About</a>
+                        <p style={{ margin: 0}}>About</p>
                     </Link></div>
                 <div className="menu" style={{ backgroundColor: "#a1abd4", flex: 1, margin: 5, borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <Link href="/Tech/tech">
-                        <a>Tech</a>
+                        <p style={{ margin: 0}}>Tech</p>
                     </Link></div>
             </div>
             <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onClick={() => clickAvatarHandle()} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>

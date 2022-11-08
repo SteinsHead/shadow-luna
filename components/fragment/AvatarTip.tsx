@@ -1,6 +1,19 @@
 import Image from "next/image";
+import {useState, useEffect} from "react";
+import axios from "axios";
 
 export default function AvatarTip() {
+    const [user, setUser] = useState('');
+
+    useEffect(() => {
+        const fetchMsg = async () => {
+            const message = await axios.get('http://localhost:3001/')
+            return message
+        };
+        fetchMsg().then((res) => {
+            setUser(res.data);
+        })
+    }, []);
     return (
         <>
             <div className="box" style={{ minWidth: "20rem", display: "flex", flexDirection: "column", alignItems: "center"}}>
@@ -11,7 +24,7 @@ export default function AvatarTip() {
                         <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
                     </div>
                     <div className="user">
-                        <h3 style={{ margin: 0}}>SteinsHead</h3>
+                        <h3 style={{ margin: 0}}>{user}</h3>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,10 @@
 import { Breadcrumb, Layout, Menu, List, Input, Avatar, Col, Row, Card, Divider, Tag  } from 'antd';
 import { UserOutlined, SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import {useEffect} from "react";
 import Footer from '../components/layouts/Footer';
 import Header from '../components/layouts/Header';
+import axios from "axios";
 
 const { Content } = Layout;
 
@@ -14,6 +16,7 @@ const items = [
 ]
 
 export default function Home() {
+
 
     return (
         <Layout className="layout" style={{ borderRadius: 10, backgroundColor: "rgba(255, 255, 255, 0.35)"}}>
