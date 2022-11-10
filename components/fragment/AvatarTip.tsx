@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import {useState, useEffect} from "react";
 import axios from "axios";
 
