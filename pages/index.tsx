@@ -9,28 +9,29 @@ import axios from "axios";
 
 const { Content } = Layout;
 
-const loveArr = ['a', 'b', 'c', 'd', 'e'];
-
-const thinkArr = ['f', 'g', 'h', 'i', 'j'];
-
-const doArr = ['k', 'l', 'm', 'n', 'o'];
-
 
 export default function Home() {
 
     const [picArr, setPicArr] = useState({});
+    const [thinkArr, setThinkArr] = useState({});
+    const [doArr, setDoArr] = useState({});
 
     useEffect(() => {
-        const fetchMsg = async () => {
+        const fetchLove = async () => {
             const message = await axios.get('http://localhost:3001/think')
-            return message
+            setPicArr(message.data);
         };
-        fetchMsg().then((res) => {
-            const data = res.data;
-            console.log(data)
-            setPicArr(data);
-            console.log(picArr);
-        })
+        const fetchThink = async () => {
+            const message = await axios.get('http://localhost:3001/think')
+            setThinkArr(message.data);
+        };
+        const fetchDo = async () => {
+            const message = await axios.get('http://localhost:3001/think')
+            setDoArr(message.data);
+        };
+        fetchLove();
+        fetchThink();
+        fetchDo();
     }, [])
 
     return (
@@ -50,14 +51,14 @@ export default function Home() {
                         </div>
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">write and think</Tag>
                     <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
-                        {
-                            thinkArr.map((item) => <Card key={item}></Card>)
+                        {thinkArr &&
+                            Object.keys(thinkArr).map((key) => <Card key={key} picture={thinkArr[key]}></Card>)
                         }
                     </div>
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">try to do</Tag>
                     <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
-                        {
-                            doArr.map((item) => <Card key={item}></Card>)
+                        {doArr &&
+                            Object.keys(doArr).map((key) => <Card key={key} picture={doArr[key]}></Card>)
                         }
                     </div>
                 </div>
