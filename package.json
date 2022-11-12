@@ -12,7 +12,8 @@
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.3"
+    "react-markdown": "^8.0.3",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

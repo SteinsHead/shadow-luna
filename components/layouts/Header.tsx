@@ -2,7 +2,10 @@ import Link from "next/link";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import AvatarTip from "../fragment/AvatarTip";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import { Transition } from 'react-transition-group';
+import './Header.module.css';
+
 
 
 export default function Header() {
@@ -14,20 +17,21 @@ export default function Header() {
     }
 
     const enterTipHandle = () => {
+        console.log("enter!")
         setShowTip(true);
     }
 
     const leaveTipHandle = () => {
+        console.log("out!")
         setShowTip(false);
     }
 
-    const openIt = {
-        animation: "fade-in 500ms forwards"
-    }
-
-    const closeIt = {
-        animation: "fade-out 500ms forwards"
-    }
+    const transitionStyles = {
+        entering: { opacity: 1 },
+        entered:  { opacity: 1 },
+        exiting:  { opacity: 0 },
+        exited:  { opacity: 0 },
+    };
 
     return (
         <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "10rem", paddingRight: "10rem"}}>
@@ -58,8 +62,9 @@ export default function Header() {
             <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onClick={() => clickAvatarHandle()} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>
                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
             </div>
-            {showTip &&
-                <div className="toolTip" style={{ position: "absolute", top: "12rem", right: "5rem", zIndex: "999", animation: "fade-in 5000ms forwards" }}>
+            {
+                showTip &&
+                <div className="toolTip" style={{ position: "absolute", top: "12rem", right: "5rem", zIndex: "999", opacity: showTip === true ? 1 : 0}}>
                     <AvatarTip></AvatarTip>
                 </div>
             }
