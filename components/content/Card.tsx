@@ -2,7 +2,7 @@ import Image from "next/legacy/image";
 
 function Card(props: cardTypes) {
     return (
-        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#bdaac1', borderRadius: 5, margin: 10, flexShrink: 0, overflow: "hidden", position: "relative" }}>
+        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#bdaac1', borderRadius: 5, margin: 10, flexShrink: 0, overflow: "hidden", position: "relative", boxShadow: "0 2px 12px 0 rgb(0 0 0 / 10%)" }}>
             {
                 props.picture &&
                 <div className="picture" style={{ height: "100%", width: "100%"}}>

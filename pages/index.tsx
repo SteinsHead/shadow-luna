@@ -37,12 +37,8 @@ export default function Home() {
     return (
         <Layout className="layout" style={{ borderRadius: 10, backgroundColor: "rgba(255, 255, 255, 0.35)"}}>
             <Header />
-            <Content style={{ margin: '0 10rem', overflow: "hidden" }}>
-                <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item>Content</Breadcrumb.Item>
-                </Breadcrumb>
-                <div className="site-layout-content" style={{ margin: "0 auto", maxWidth: "100rem", backgroundColor: "#9b87e3", borderRadius: 10}} >
+            <Content style={{ margin: '5rem 10rem', overflow: "hidden" }}>
+                <div className="site-layout-content" style={{ margin: "0 auto", maxWidth: "100rem", backgroundColor: "#5a9aec", borderRadius: 10, boxShadow: "0 0 10 4 rgb(0 0 0 / 10%)"}} >
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">every day love</Tag>
                         <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
                         {picArr &&
