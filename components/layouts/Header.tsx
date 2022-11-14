@@ -56,7 +56,7 @@ export default function Header() {
             <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onClick={() => clickAvatarHandle()} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>
                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
             </div>
-            <div className={`toolTip`} style={{ position: "absolute", top: "12rem", right: "5rem", zIndex: "999"}}>
+            <div className={`toolTip`} style={{ position: "absolute", top: "11rem", right: "5rem", zIndex: "999"}}>
                 <AvatarTip isShown={showTip}></AvatarTip>
             </div>
         </div>
