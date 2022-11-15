@@ -13,10 +13,6 @@ export default function Header() {
     let [showTip, setShowTip] = useState(false);
     const [shows, setShows] = useState('');
 
-    const clickAvatarHandle = () => {
-        router.push("/Manage/manage");
-    }
-
     const enterTipHandle = () => {
         console.log("enter!")
         setShowTip(true);
@@ -53,7 +49,7 @@ export default function Header() {
                         <p style={{ margin: 0}}>Tech</p>
                     </Link></div>
             </div>
-            <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onClick={() => clickAvatarHandle()} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>
+            <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>
                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
             </div>
             <div className={`toolTip`} style={{ position: "absolute", top: "11rem", right: "5rem", zIndex: "999"}}>
