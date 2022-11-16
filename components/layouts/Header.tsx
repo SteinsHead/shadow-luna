@@ -24,7 +24,7 @@ export default function Header() {
     }
 
     return (
-        <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "10rem", paddingRight: "10rem"}}>
+        <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "10rem", paddingRight: "10rem", marginTop: "2rem"}}>
             <div className={`title`}>
                 <h2 style={{ cursor: "default"}}>Shadow Luna</h2>
             </div>
@@ -52,7 +52,7 @@ export default function Header() {
             <div className="avatar" style={{ height: "6rem", width: "6rem", borderRadius: "6rem", position: "relative", overflow: "hidden"}} onMouseEnter={() => enterTipHandle()} onMouseLeave={() => leaveTipHandle()}>
                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
             </div>
-            <div className={`toolTip`} style={{ position: "absolute", top: "11rem", right: "5rem", zIndex: "999"}}>
+            <div className={`toolTip`} style={{ position: "absolute", top: "11rem", right: "3rem", zIndex: "999"}}>
                 <AvatarTip isShown={showTip}></AvatarTip>
             </div>
         </div>
