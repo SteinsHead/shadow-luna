@@ -2,9 +2,11 @@ import Image from "next/legacy/image";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import ControlItem from "../../components/fragment/ControlItem";
+import {it} from "node:test";
 
 export default function Center() {
     const [user, setUser] = useState('');
+    const [itemIndex, setItemIndex] = useState('1');
 
     useEffect(() => {
         const fetchMsg = async () => {
@@ -15,6 +17,24 @@ export default function Center() {
             setUser(res.data);
         })
     }, []);
+
+    const items = {
+        1: "仪表盘",
+        2: "博文",
+        3: "点滴",
+        4: "评论",
+        5: "页面",
+        6: "文件",
+        7: "说说",
+        8: "速记",
+        9: "项目",
+        10: "朋友们",
+        11: "数据",
+        12: "设定",
+        13: "其他"
+    }
+
+
 
     return (
         <>
@@ -27,19 +47,13 @@ export default function Center() {
                         <button></button>
                     </div>
                     <div className="item-options" style={{ width: "100%", display: "flex", flexDirection: "column", paddingLeft: "1rem", alignItems: "center", height: "100%"}}>
-                        <ControlItem context="仪表盘"></ControlItem>
-                        <ControlItem context="博文"></ControlItem>
-                        <ControlItem context="点滴"></ControlItem>
-                        <ControlItem context="评论"></ControlItem>
-                        <ControlItem context="页面"></ControlItem>
-                        <ControlItem context="文件"></ControlItem>
-                        <ControlItem context="说说"></ControlItem>
-                        <ControlItem context="速记"></ControlItem>
-                        <ControlItem context="项目"></ControlItem>
-                        <ControlItem context="朋友们"></ControlItem>
-                        <ControlItem context="数据"></ControlItem>
-                        <ControlItem context="设定"></ControlItem>
-                        <ControlItem context="其他"></ControlItem>
+                        {
+                            Object.keys(items).map((key) => {
+                                return (
+                                    <ControlItem key={key} itemKey={key} context={items[key]} currIndex={itemIndex} handleIndex={setItemIndex}></ControlItem>
+                                )
+                            })
+                        }
                     </div>
                     <div className="userinfo" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: "1rem", overflow: "hidden", padding: "3rem"}}>
                         <div className="avatar" style={{ height: "4rem", width: "4rem", borderRadius: "4rem", position: "relative", overflow: "hidden"}}>
@@ -50,7 +64,7 @@ export default function Center() {
                         </div>
                     </div>
                 </div>
-                <div className="right-side">　ただいまー　</div>
+                <div className="right-side">　这里还在建设中哦~　</div>
             </div>
         </>
     )

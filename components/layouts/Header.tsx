@@ -2,8 +2,7 @@ import Link from "next/link";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import AvatarTip from "../fragment/AvatarTip";
-import {useEffect, useState} from "react";
-import { Transition } from 'react-transition-group';
+import { useEffect, useState } from "react";
 import styles from './Header.module.css'
 
 
@@ -29,7 +28,7 @@ export default function Header() {
                 <h2 style={{ cursor: "default"}}>Shadow Luna</h2>
             </div>
             <div className="input">
-                <input type="text" defaultValue="hello" />
+                <input type="text" placeholder="hello" style={{ borderRadius: "1.5rem", border: "1px solid", paddingLeft: 10}} />
             </div>
             <div className="context" style={{ display: "flex", flexDirection: "row", minWidth: "35rem", minHeight: "7rem"}}>
                 <div className="menu" style={{ backgroundColor: "#e2e0f5", flex: 1, margin: 5, borderRadius: 5, display: "flex", justifyContent: "center", alignItems: "center", boxShadow: "0 2px 12px 0 rgb(0 0 0 / 10%)"}}>
