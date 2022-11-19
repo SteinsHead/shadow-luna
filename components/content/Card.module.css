@@ -1,0 +1,7 @@
+.cover {
+    transition: all 500ms;
+}
+
+.cover:hover {
+    transform: scale(1.2);
+}

@@ -14,7 +14,7 @@ function MenuBlock ({blockName, blockLink}: MenuProps) {
 
 interface MenuProps {
     blockName: string,
-    blockLink: string,
+    blockLink: string
 }
 
 export default MenuBlock;

@@ -35,7 +35,7 @@ export default function Header() {
                 {
                     [["/Diary/diary", "Diary"], ["/Blog/blog", "Blog"], ["/About/about", "About"], ["/Tech/tech", "Tech"]].map((item) => {
                         return (
-                            <MenuBlock blockLink={item[0]} blockName={item[1]}></MenuBlock>
+                            <MenuBlock key={item[1]} blockLink={item[0]} blockName={item[1]}></MenuBlock>
                         )
                     })
                 }
