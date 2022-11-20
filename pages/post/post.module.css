@@ -1,0 +1,37 @@
+.contentArea {
+    border: 1px solid #ffb769;
+    border-radius: 1rem;
+    padding: 1rem;
+    word-wrap: break-word;
+    font-size: 18px;
+}
+
+.contentArea:empty:before {
+    content: attr(placeholder);
+}
+
+.contentArea:focus {
+    outline: 0;
+    box-shadow: 0 0 3px 3px #ffb769;
+    transition: .5s;
+}
+
+.titleArea {
+    border: 1px solid #ffb769;
+    border-radius: 1rem;
+    padding: 1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+.titleArea:empty:before {
+    content: attr(placeholder);
+}
+
+.titleArea:focus {
+    outline: 0;
+    box-shadow: 0 0 3px 3px #ffb769;
+    transition: .5s;
+}

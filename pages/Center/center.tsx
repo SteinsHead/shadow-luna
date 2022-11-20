@@ -4,7 +4,7 @@ import React from "react";
 export default function Center() {
     return (
         <>
-            <div className="right-side">　这里还在建设中哦~　</div>
+            <div className="right-side" style={{ flex: 1}}>　这里还在建设中哦~　</div>
         </>
     )
 }
