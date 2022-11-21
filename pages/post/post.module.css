@@ -35,3 +35,21 @@
     box-shadow: 0 0 3px 3px #ffb769;
     transition: .5s;
 }
+
+.saveButton, .sentButton {
+    width: 10rem;
+    height: 4rem;
+    background-color: #ffb769;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    transition: .5s;
+}
+
+.saveButton:hover, .sentButton:hover {
+    background-color: #75ad9b;
+    transition: .5s;
+}
