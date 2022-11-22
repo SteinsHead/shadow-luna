@@ -19,6 +19,8 @@ function ControlItem({context, itemKey, currIndex, handleIndex, functionLink}: I
         handleIndex(itemKey);
         if(functionLink) {
             router.push(functionLink);
+        }else {
+            router.push('/Center/center');
         }
     }
 
