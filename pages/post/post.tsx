@@ -1,5 +1,8 @@
 import CenterLayout from "../../components/layouts/CenterLayout";
 import React from "react";
+import {useState} from "react";
+import {Editor, EditorState} from 'draft-js';
+import 'draft-js/dist/Draft.css';
 import styles from './post.module.css'
 import EditBarTool from "../../components/fragment/editBarTool";
 import {
@@ -7,6 +10,8 @@ import {
 } from "@icon-park/react";
 
 export default function Post() {
+
+    const [editState, setEditState] = useState(() => EditorState.createEmpty())
 
     return (
         <>
@@ -20,9 +25,10 @@ export default function Post() {
                     </div>
                 </div>
                 <div className="content" style={{ flex: 6, display: "flex", flexDirection: "column", alignItems: "center", width: "100%", height: "100%"}}>
-                    <EditBarTool />
-                    <div className="textarea" style={{ width: "80%", flex: 1}}>
-                        <div className={styles.contentArea} placeholder="在这里输入内容 ..." contentEditable="true" style={{ height: "100%"}}></div>
+                    <EditBarTool editorState={editState} setEditorState={setEditState}/>
+                    <div className="textarea" style={{ width: "80%",  }}>
+                        {/*<div className={styles.contentArea} placeholder="在这里输入内容 ..." contentEditable="true" style={{ height: "100%"}}></div>*/}
+                        <Editor editorState={editState} onChange={setEditState} placeholder="Tell a story..."></Editor>
                     </div>
                 </div>
                 <div className="control" style={{ flex: 1, width: "80%", height: "100%", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>

@@ -8,18 +8,37 @@ import {
     TextItalic,
     TextUnderline, VideoTwo
 } from "@icon-park/react";
+import {RichUtils} from 'draft-js';
 import React, {useState} from "react";
 
-export default function EditBarTool() {
+export default function EditBarTool({setEditorState, editorState}) {
     const [toolName, setToolName] = useState('');
 
     const handleClick = (event) => {
         let currName = event.currentTarget.className;
+        console.log(currName);
+        let currArr = event.currentTarget.className.split(" ")
         if(toolName === currName) {
             setToolName('');
         }else {
             setToolName(event.currentTarget.className);
+
         }
+
+        if(currArr[currArr.length - 1] === "i-icon-text-bold") {
+            setEditorState(RichUtils.toggleInlineStyle(editorState, 'BOLD'));
+        }
+        if(currArr[currArr.length - 1] === "i-icon-text-italic") {
+            setEditorState(RichUtils.toggleInlineStyle(editorState, 'ITALIC'));
+        }
+        if(currArr[currArr.length - 1] === "i-icon-text-underline") {
+            setEditorState(RichUtils.toggleInlineStyle(editorState, 'UNDERLINE'));
+        }
+        if(currArr[currArr.length - 1] === "i-icon-code") {
+            setEditorState(RichUtils.toggleInlineStyle(editorState, 'CODE'));
+        }
+
+
     }
 
     return (
