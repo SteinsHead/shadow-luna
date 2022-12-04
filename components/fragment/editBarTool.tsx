@@ -8,11 +8,12 @@ import {
     TextItalic,
     TextUnderline, VideoTwo
 } from "@icon-park/react";
-import {RichUtils} from 'draft-js';
+import { RichUtils, AtomicBlockUtils } from 'draft-js';
 import React, {useState} from "react";
 
-export default function EditBarTool({setEditorState, editorState}) {
+export default function EditBarTool({ setEditorState, editorState }) {
     const [toolName, setToolName] = useState('');
+
 
     const handleClick = (event) => {
         let currName = event.currentTarget.className;
@@ -35,8 +36,18 @@ export default function EditBarTool({setEditorState, editorState}) {
             setEditorState(RichUtils.toggleInlineStyle(editorState, 'UNDERLINE'));
         }
         if(currArr[currArr.length - 1] === "i-icon-code") {
-            setEditorState(RichUtils.toggleInlineStyle(editorState, 'CODE'));
+            setEditorState(RichUtils.toggleBlockType(editorState, 'code-block'));
         }
+        if(currArr[currArr.length - 1] === "i-icon-quote") {
+            setEditorState(RichUtils.toggleBlockType(editorState, 'blockquote'));
+        }
+        if(currArr[currArr.length - 1] === "i-icon-list-numbers") {
+            setEditorState(RichUtils.toggleBlockType(editorState, 'ordered-list-item'));
+        }
+        if(currArr[currArr.length - 1] === "i-icon-list-two") {
+            setEditorState(RichUtils.toggleBlockType(editorState, 'unordered-list-item'));
+        }
+
 
 
     }

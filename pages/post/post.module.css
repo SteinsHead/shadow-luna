@@ -36,6 +36,22 @@
     transition: .5s;
 }
 
+.textArea {
+    border: 1px solid #ffb769;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 18px;
+    min-height: 40rem;
+    margin-top: 3rem;
+    width: 80%;
+}
+
+.textArea:focus {
+    outline: 0;
+    box-shadow: 0 0 3px 3px #ffb769;
+    transition: .5s;
+}
+
 .saveButton, .sentButton {
     width: 10rem;
     height: 4rem;
@@ -52,4 +68,16 @@
 .saveButton:hover, .sentButton:hover {
     background-color: #75ad9b;
     transition: .5s;
+}
+
+.textArea :global(.RichEditor-blockquote) {
+    display: block;
+    border-left: 1rem solid #ffb769;
+    color: #666;
+    margin: 0 0;
+    padding: 1rem 4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+    background-color: #eff9ff;
 }
