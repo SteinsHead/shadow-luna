@@ -30,15 +30,24 @@ export default function Home() {
     const [picArr, setPicArr] = useState({});
     const [thinkArr, setThinkArr] = useState({});
     const [doArr, setDoArr] = useState({});
+    const [bookArr, setBookArr] = useState([]);
     const [saying, setSaying] = useState('');
 
     useEffect(() => {
+        const fetchBooks = async () => {
+            const message = await axios.get('http://localhost:3001/books');
+            setBookArr(message.data);
+        }
+        fetchBooks();
+    }, []);
+
+    useEffect(() => {
         const fetchLove = async () => {
-            const message = await axios.get('http://localhost:3001/think')
+            const message = await axios.get(`http://localhost:3001/think?number=${bookArr.length}`)
             setPicArr(message.data);
         };
         fetchLove();
-    }, [])
+    }, [bookArr]);
 
     useEffect(() => {
         const fetchThink = async () => {
@@ -73,7 +82,7 @@ export default function Home() {
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">every day love</Tag>
                         <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
                         {picArr &&
-                            Object.keys(picArr).map((key) => <Card key={key} picture={picArr[key]}></Card>)
+                            Object.keys(picArr).map((key) => <Card key={key} picture={picArr[key]} cardTitle={bookArr[key]}></Card>)
                         }
                         </div>
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">write and think</Tag>
