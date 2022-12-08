@@ -6,6 +6,7 @@ import Footer from '../components/layouts/Footer';
 import Header from '../components/layouts/Header';
 import Card from '../components/content/Card';
 import axios from "axios";
+import styles from './index.module.css'
 
 const { Content } = Layout;
 
@@ -35,19 +36,13 @@ export default function Home() {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const message = await axios.get('http://localhost:3001/books');
-            setBookArr(message.data);
+            const message_book = await axios.get('http://localhost:3001/books');
+            setBookArr(message_book.data);
+            const message_pic = await axios.get(`http://localhost:3001/think?number=${message_book.data.length}`);
+            setPicArr(message_pic.data);
         }
         fetchBooks();
     }, []);
-
-    useEffect(() => {
-        const fetchLove = async () => {
-            const message = await axios.get(`http://localhost:3001/think?number=${bookArr.length}`)
-            setPicArr(message.data);
-        };
-        fetchLove();
-    }, [bookArr]);
 
     useEffect(() => {
         const fetchThink = async () => {
@@ -80,23 +75,23 @@ export default function Home() {
             <Content style={{ margin: '5rem 10rem', overflow: "hidden" }}>
                 <div className="site-layout-content" style={{ margin: "0 auto", maxWidth: "100rem", backgroundColor: "#5a9aec", borderRadius: 10, boxShadow: "0 0 10 4 rgb(0 0 0 / 10%)"}} >
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">every day love</Tag>
-                        <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
+                        <div className={styles.container}>
                         {picArr &&
                             Object.keys(picArr).map((key) => <Card key={key} picture={picArr[key]} cardTitle={bookArr[key]}></Card>)
                         }
                         </div>
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">write and think</Tag>
-                    <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
-                        {thinkArr &&
-                            Object.keys(thinkArr).map((key) => <Card key={key} picture={thinkArr[key]}></Card>)
-                        }
-                    </div>
+                        <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
+                            {thinkArr &&
+                                Object.keys(thinkArr).map((key) => <Card key={key} picture={thinkArr[key]}></Card>)
+                            }
+                        </div>
                     <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">try to do</Tag>
-                    <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
-                        {doArr &&
-                            Object.keys(doArr).map((key) => <Card key={key} picture={doArr[key]}></Card>)
-                        }
-                    </div>
+                        <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
+                            {doArr &&
+                                Object.keys(doArr).map((key) => <Card key={key} picture={doArr[key]}></Card>)
+                            }
+                        </div>
                     <div className="context" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "10rem", fontSize: "1.5rem", fontWeight: 600}}>
                         <p>{saying}</p>
                     </div>

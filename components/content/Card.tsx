@@ -5,7 +5,7 @@ function Card({picture, cardTitle}: cardTypes) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/Diary/diary/${cardTitle.substring(0, cardTitle.length - 3)}`)
+        router.push({pathname: '/Diary/[diary]', query: { diary: cardTitle.substring(0, cardTitle.length - 3)}})
     }
 
     return (
