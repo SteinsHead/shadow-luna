@@ -17,3 +17,7 @@
 .logout {
     color: white;
 }
+
+.container {
+    background-color: rgba(255, 183, 105, .85);
+}

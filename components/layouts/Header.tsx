@@ -3,10 +3,17 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import AvatarTip from "../fragment/AvatarTip";
 import MenuBlock from "../fragment/MenuBlock";
+import { AudioOutlined } from '@ant-design/icons';
+import { Input, Space } from 'antd';
 import { useEffect, useState } from "react";
+import localFont from '@next/font/local'
 import styles from './Header.module.css'
 
+const myFont = localFont({ src: './RocknRollOne-Regular.ttf', weight: '700' })
 
+const { Search } = Input;
+
+const onSearch = (value: string) => console.log(value);
 
 export default function Header() {
     const router = useRouter();
@@ -25,11 +32,11 @@ export default function Header() {
 
     return (
         <div className="header" style={{ height: "10rem", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingLeft: "10rem", paddingRight: "10rem", marginTop: "2rem"}}>
-            <div className={`title`}>
-                <h2 style={{ cursor: "default"}}>Shadow Luna</h2>
+            <div className={myFont.className}>
+                <h2 style={{ cursor: "default", fontSize: "3rem"}}>Shadow Luna</h2>
             </div>
             <div className="input">
-                <input type="text" placeholder="hello" style={{ borderRadius: "1.5rem", border: "1px solid", paddingLeft: 10}} />
+                <Search placeholder="input search text" allowClear onSearch={onSearch} size="large" style={{ width: "35rem" }} />
             </div>
             <div className="context" style={{ display: "flex", flexDirection: "row", minWidth: "35rem", minHeight: "7rem"}}>
                 {

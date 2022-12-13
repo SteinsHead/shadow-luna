@@ -6,7 +6,7 @@ import 'draft-js/dist/Draft.css';
 import styles from './post.module.css'
 import EditBarTool from "../../components/fragment/editBarTool";
 import {
-    Save, SendOne,
+    Save, SendOne, Export
 } from "@icon-park/react";
 import {read} from "fs";
 
@@ -91,11 +91,15 @@ export default function Post() {
                     </div>
                 </div>
                 <div className="control" style={{ flex: 1, width: "80%", height: "100%", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>
-                    <div className={ styles.saveButton }>
+                    <div className={ styles.button }>
+                        <Export style={{ marginRight: "1rem"}} theme="outline" size="20" fill="#333"/>
+                        <p style={{ margin: 0}}>导出</p>
+                    </div>
+                    <div className={ styles.button }>
                         <Save style={{ marginRight: "1rem"}} theme="outline" size="20" fill="#333"/>
                         <p style={{ margin: 0}}>保存</p>
                     </div>
-                    <div className={ styles.sentButton }>
+                    <div className={ styles.button }>
                         <SendOne style={{ marginRight: "1rem"}} theme="outline" size="20" fill="#333"/>
                         <p style={{ margin: 0}}>发送</p>
                     </div>

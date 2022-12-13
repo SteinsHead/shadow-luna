@@ -52,7 +52,7 @@
     transition: .5s;
 }
 
-.saveButton, .sentButton {
+.button {
     width: 10rem;
     height: 4rem;
     background-color: #ffb769;
@@ -65,7 +65,7 @@
     transition: .5s;
 }
 
-.saveButton:hover, .sentButton:hover {
+.button:hover {
     background-color: #75ad9b;
     transition: .5s;
 }

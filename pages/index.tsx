@@ -1,14 +1,18 @@
-import { Breadcrumb, Layout, Tag  } from 'antd';
+import { Breadcrumb, Layout } from 'antd';
 import { UserOutlined, SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import {useEffect, useState} from "react";
 import Footer from '../components/layouts/Footer';
 import Header from '../components/layouts/Header';
 import Card from '../components/content/Card';
+import ItemTag from '../components/fragment/ItemTag';
 import axios from "axios";
+import localFont from '@next/font/local'
 import styles from './index.module.css'
 
 const { Content } = Layout;
+
+const myFont = localFont({ src: '../components/layouts/RocknRollOne-Regular.ttf', weight: '700' })
 
 interface SayingType {
     id: number,
@@ -29,7 +33,8 @@ interface SayingType {
 export default function Home() {
 
     const [picArr, setPicArr] = useState({});
-    const [thinkArr, setThinkArr] = useState({});
+    const [thinkArr, setAnimeArr] = useState([]);
+    const [animePicArr, setAnimePicArr] = useState({});
     const [doArr, setDoArr] = useState({});
     const [bookArr, setBookArr] = useState([]);
     const [saying, setSaying] = useState('');
@@ -46,8 +51,10 @@ export default function Home() {
 
     useEffect(() => {
         const fetchThink = async () => {
-            const message = await axios.get('http://localhost:3001/think')
-            setThinkArr(message.data);
+            const message_anime = await axios.get('http://localhost:3001/anime')
+            setAnimeArr(message_anime.data);
+            const message_pic = await axios.get(`http://localhost:3001/think?number=${message_anime.data.length}`);
+            setAnimePicArr(message_pic.data);
         };
         fetchThink();
     }, []);
@@ -72,27 +79,35 @@ export default function Home() {
     return (
         <Layout className="layout" style={{ borderRadius: 10, backgroundColor: "rgba(255, 255, 255, 0.35)"}}>
             <Header />
-            <Content style={{ margin: '5rem 10rem', overflow: "hidden" }}>
-                <div className="site-layout-content" style={{ margin: "0 auto", maxWidth: "100rem", backgroundColor: "#5a9aec", borderRadius: 10, boxShadow: "0 0 10 4 rgb(0 0 0 / 10%)"}} >
-                    <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">every day love</Tag>
+            <Content style={{ margin: '3rem 8rem', overflow: "hidden", padding: "2rem" }}>
+                <div className="site-layout-content" style={{ margin: "0 auto", maxWidth: "100rem", backgroundColor: "rgba(255, 255, 255, 0.35)", borderRadius: 10, boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 12px 0px"}} >
+                    <ItemTag TagName={"日记随笔"}></ItemTag>
                         <div className={styles.container}>
-                        {picArr &&
-                            Object.keys(picArr).map((key) => <Card key={key} picture={picArr[key]} cardTitle={bookArr[key]}></Card>)
-                        }
-                        </div>
-                    <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">write and think</Tag>
-                        <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
-                            {thinkArr &&
-                                Object.keys(thinkArr).map((key) => <Card key={key} picture={thinkArr[key]}></Card>)
+                            {picArr &&
+                                Object.keys(picArr).map((key) => <Card key={key} picture={picArr[key]} cardTitle={bookArr[key].substring(0, bookArr[key].length - 3)} cardType={"diary"}></Card>)
                             }
                         </div>
-                    <Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">try to do</Tag>
-                        <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>
-                            {doArr &&
-                                Object.keys(doArr).map((key) => <Card key={key} picture={doArr[key]}></Card>)
+                    <ItemTag TagName={"动漫杂谈"}></ItemTag>
+                        <div className={styles.container}>
+                            {animePicArr &&
+                                Object.keys(animePicArr).map((key) => <Card key={key} picture={animePicArr[key]} cardTitle={thinkArr[key].substring(0, thinkArr[key].length - 3)} cardType={"anime"}></Card>)
                             }
                         </div>
-                    <div className="context" style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "10rem", fontSize: "1.5rem", fontWeight: 600}}>
+                    <div className="container" style={{ display: "flex", marginTop: "4rem", justifyContent: "space-between", alignItems: "center"}}>
+                        <img src="http://ghchart.rshah.org/SteinsHead" alt="2022 Github chart" style={{ width: 600}}/>
+                        <div className="right-container" style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end"}}>
+                            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SteinsHead&layout=compact&theme=buefy" alt="" style={{ width: 300, marginBottom: 10}}/>
+                            <img src="https://github-readme-stats.vercel.app/api?username=SteinsHead&count_private=true&show_icons=true&count_private=true&theme=buefy" alt="" style={{ width: 300, marginTop: 10}}/>
+                        </div>
+
+                    </div>
+                    {/*<Tag style={{ marginTop: 30, width: 100, marginBottom: 30, marginLeft: 10 }} color="blue">try to do</Tag>*/}
+                    {/*    <div className="container" style={{ display: "flex", flexDirection: "row", overflowX: "auto", flexWrap: "nowrap"}}>*/}
+                    {/*        {doArr &&*/}
+                    {/*            Object.keys(doArr).map((key) => <Card key={key} picture={doArr[key]}></Card>)*/}
+                    {/*        }*/}
+                    {/*    </div>*/}
+                    <div className={myFont.className} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "6rem", fontSize: "1.5rem", fontWeight: 600}}>
                         <p>{saying}</p>
                     </div>
                 </div>

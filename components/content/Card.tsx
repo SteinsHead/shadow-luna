@@ -1,15 +1,15 @@
 import styles from './Card.module.css';
 import { useRouter } from 'next/router'
 
-function Card({picture, cardTitle}: cardTypes) {
+function Card({picture, cardTitle, cardType}: cardTypes) {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push({pathname: '/Diary/[diary]', query: { diary: cardTitle.substring(0, cardTitle.length - 3)}})
+        router.push({pathname: '/Diary/[diary]', query: { diary: cardTitle, type: cardType}})
     }
 
     return (
-        <div className="card" style={{ height: 150, width: 250, backgroundColor: '#bdaac1', borderRadius: 5, margin: 10, flexShrink: 0, overflow: "hidden", position: "relative", boxShadow: "0 2px 12px 0 rgb(0 0 0 / 10%)" }} onClick={handleClick}>
+        <div className="card" style={{ height: 180, width: 280, backgroundColor: '#bdaac1', borderRadius: 5, margin: 10, flexShrink: 0, overflow: "hidden", position: "relative", boxShadow: "0 2px 12px 0 rgb(0 0 0 / 10%)" }} onClick={handleClick}>
             {
                 picture &&
                 <div className="picture" style={{ height: "100%", width: "100%"}}>
@@ -28,6 +28,7 @@ function Card({picture, cardTitle}: cardTypes) {
 interface cardTypes {
     picture?: string;
     cardTitle?: string;
+    cardType ?: string;
 }
 
 export default Card

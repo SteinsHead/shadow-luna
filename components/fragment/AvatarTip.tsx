@@ -50,7 +50,7 @@ function AvatarTip({ isShown }: AvatarProps) {
                 <div className={ `modal ${ ( isShown || hover ) ? styles.active : styles.enter}` } style={{ minWidth: "20rem", display: "flex", flexDirection: "column", alignItems: "center"}} onMouseEnter={enterUserHandle} onMouseLeave={leaveUserHandle}>
                     <div className="arrow" style={{ width: 0, height: 0, borderWidth: "0 0.5em 0.5rem",borderStyle: "solid", borderColor: "transparent transparent #ffb769 transparent"}}>
                     </div>
-                    <div className="container" style={{ display: "flex", backgroundColor: "#ffb769", borderRadius: 5, padding: 20, flexDirection: "column", justifyContent: "space-between", alignItems: "center", width: "100%", boxShadow: "0 2px 12px 0 rgb(0 0 0 / 10%)" }}>
+                    <div className={styles.container} style={{ display: "flex", borderRadius: 5, padding: 20, flexDirection: "column", justifyContent: "space-between", alignItems: "center", width: "100%", boxShadow: "0 2px 12px 0 rgb(0 0 0 / 10%)" }}>
                         <div className="userinfo" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: "3rem", overflow: "hidden"}}>
                             <div className="avatar" style={{ height: "4rem", width: "4rem", borderRadius: "4rem", position: "relative", overflow: "hidden"}}>
                                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
