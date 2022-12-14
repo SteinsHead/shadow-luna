@@ -1,8 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import { useRouter } from 'next/router'
-import {useState, useEffect} from "react";
+import Header from '../../components/layouts/Header';
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import remarkGfm from 'remark-gfm'
+import Diary from "./diary";
 
 export default function DiaryPage() {
     const [context, setContext] = useState('');
@@ -25,11 +27,26 @@ export default function DiaryPage() {
     }, []);
 
     return (
-        <div className="container" style={{ borderRadius: 10, backgroundColor: "rgba(255, 255, 255, 0.35)", display: "flex", justifyContent: "center", alignItems: "center"}}>
-            <div className="box" style={{ maxWidth: "100rem", backgroundColor: "rgba(255, 255, 255, 0.35)", borderRadius: 10, padding: 30}}>
+        <div className="container" style={{ borderRadius: 10, backgroundColor: "rgba(255, 255, 255, 0.35)", display: "flex", justifyContent: "center", alignItems: "center", margin: '3rem 8rem', overflow: "hidden", padding: "2rem"}}>
+            <div className="box" style={{ margin: "0 auto", maxWidth: "100rem", backgroundColor: "rgba(255, 255, 255, 0.4)", borderRadius: 10, boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 12px 0px", padding: 30}}>
                 <ReactMarkdown>{ `# ${title}`}</ReactMarkdown>
-                <ReactMarkdown remarkPlugins={[[remarkGfm, {singleTilde: false}]]} children={context}></ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[[remarkGfm, {singleTilde: false}]]} children={context} components={{
+                    img({...props}) {
+                        return (
+                            <div style={{ display: "flex", justifyContent: "center"}}>
+                                <img {...props} alt="" style={{ maxWidth: '100%' }}/>
+                            </div>
+
+                        )
+                    }
+                }}/>
             </div>
         </div>
+    )
+}
+
+DiaryPage.getLayout = function getLayout(page: React.ReactElement) {
+    return (
+        <Header>{ page }</Header>
     )
 }
