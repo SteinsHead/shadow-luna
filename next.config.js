@@ -5,7 +5,7 @@ module.exports = async (phase, { defaultConfig }) => {
     const nextConfig = {
         /* config options here */
         images: {
-            domains: ['http://localhost:3001']
+            domains: ['http://localhost:3001', 'cdn.jsdelivr.net']
         }
     }
     return nextConfig
