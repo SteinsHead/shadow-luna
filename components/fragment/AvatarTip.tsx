@@ -55,7 +55,7 @@ function AvatarTip({ isShown }: AvatarProps) {
                             <div className="avatar" style={{ height: "4rem", width: "4rem", borderRadius: "4rem", position: "relative", overflow: "hidden"}}>
                                 <Image src="/avatar.jpg" alt="pic of the author" layout="fill" />
                             </div>
-                            <div className="user" style={{ color: "#606266", lineHeight: 1.4, textAlign: "justify", fontSize: 16, fontWeight: 700}}>
+                            <div className="user" style={{ color: "#606266", lineHeight: 1.4, textAlign: "justify", fontSize: 16, fontWeight: 700, cursor: "default"}}>
                                 <p style={{ margin: 0 }}>{user}</p>
                             </div>
                         </div>
