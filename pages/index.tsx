@@ -29,6 +29,7 @@ interface SayingType {
 }
 
 
+
 export default function Home() {
 
     const [picArr, setPicArr] = useState({});
@@ -37,6 +38,12 @@ export default function Home() {
     const [doArr, setDoArr] = useState({});
     const [bookArr, setBookArr] = useState([]);
     const [saying, setSaying] = useState('');
+
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/gh/SteinsHead/live-waifu@latest/autoload.js";
+        document.body.appendChild(script);
+    }, []);
 
     useEffect(() => {
         const fetchBooks = async () => {
